@@ -17,8 +17,8 @@ const BRAND = {
   purple: "#6B2D85",
 };
 
-const GTAG_ID = "AW-16793971751";
-const CONVERSION_LABEL = "Mh3zCLvmotMcEKfY_sc-";
+const GTAG_ID = "AW-16799181696";
+const CONVERSION_LABEL = "abKMCOmHhbEcEIDXvMo-";
 
 declare global {
   interface Window {
@@ -36,9 +36,7 @@ function JazzCashSuccessContent() {
   const [modalOpen, setModalOpen] = useState(false);
 
   const hasSuccessParam = searchParams?.has("success");
-  const isSuccess = hasSuccessParam
-    ? searchParams?.get("success") === "true"
-    : null;
+  const isSuccess = hasSuccessParam ? searchParams?.get("success") === "true" : null;
 
   useEffect(() => {
     setModalOpen(hasSuccessParam);
@@ -57,7 +55,7 @@ ${
   currency: 'PKR'
 });
 gtag('event', 'subscribe', {
-  value: 1.0, 
+  value: 1.0,
   currency: 'PKR'
 });`
     : ""
@@ -65,10 +63,8 @@ gtag('event', 'subscribe', {
 
   const handleContinueClick = () => {
     const ua = window.navigator.userAgent;
-    const playStore =
-      "https://play.google.com/store/apps/details?id=com.women.world.blogs";
-    const appStore =
-      "https://apps.apple.com/pk/app/women-world-health-fitness/id6670153818";
+    const playStore = "https://play.google.com/store/apps/details?id=com.women.world.blogs";
+    const appStore = "https://apps.apple.com/pk/app/women-world-health-fitness/id6670153818";
     window.open(/iphone|ipad|ipod/i.test(ua) ? appStore : playStore, "_blank");
   };
 
@@ -100,30 +96,15 @@ gtag('event', 'subscribe', {
               <button
                 type="button"
                 onClick={() => router.push("/jazzcash")}
-                className="flex h-7 w-7 items-center justify-center rounded-full text-[#888] hover:bg-[#FCE8EB]  "
+                className="flex h-7 w-7 items-center justify-center rounded-full text-[#888] hover:bg-[#FCE8EB] "
                 aria-label="Close"
               >
-                <svg
-                  width="24"
-                  height="24"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <circle cx="12" cy="12" r="12" fill="white" />
-                  <circle
-                    cx="12"
-                    cy="12"
-                    r="11.75"
-                    stroke="black"
-                    strokeOpacity="0.08"
-                    strokeWidth="0.5"
-                  />
-                  <path
-                    d="M15.0832 9.4831L12.5664 11.9999L15.0832 14.5167C15.2392 14.6727 15.2392 14.9263 15.0832 15.0823C15.0048 15.1607 14.9024 15.1991 14.8 15.1991C14.6976 15.1991 14.5952 15.1599 14.5168 15.0823L12 12.5655L9.48323 15.0823C9.40483 15.1607 9.30242 15.1991 9.20003 15.1991C9.09763 15.1991 8.99522 15.1599 8.91682 15.0823C8.76083 14.9263 8.76083 14.6727 8.91682 14.5167L11.4336 11.9999L8.91682 9.4831C8.76083 9.3271 8.76083 9.0735 8.91682 8.9175C9.07282 8.7615 9.32642 8.7615 9.48242 8.9175L11.9992 11.4343L14.516 8.9175C14.672 8.7615 14.9256 8.7615 15.0816 8.9175C15.2376 9.0735 15.2376 9.3271 15.0816 9.4831H15.0832Z"
-                    fill="black"
-                  />
-                </svg>
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+<circle cx="12" cy="12" r="12" fill="white"/>
+<circle cx="12" cy="12" r="11.75" stroke="black" strokeOpacity="0.08" strokeWidth="0.5"/>
+<path d="M15.0832 9.4831L12.5664 11.9999L15.0832 14.5167C15.2392 14.6727 15.2392 14.9263 15.0832 15.0823C15.0048 15.1607 14.9024 15.1991 14.8 15.1991C14.6976 15.1991 14.5952 15.1599 14.5168 15.0823L12 12.5655L9.48323 15.0823C9.40483 15.1607 9.30242 15.1991 9.20003 15.1991C9.09763 15.1991 8.99522 15.1599 8.91682 15.0823C8.76083 14.9263 8.76083 14.6727 8.91682 14.5167L11.4336 11.9999L8.91682 9.4831C8.76083 9.3271 8.76083 9.0735 8.91682 8.9175C9.07282 8.7615 9.32642 8.7615 9.48242 8.9175L11.9992 11.4343L14.516 8.9175C14.672 8.7615 14.9256 8.7615 15.0816 8.9175C15.2376 9.0735 15.2376 9.3271 15.0816 9.4831H15.0832Z" fill="black"/>
+</svg>
+
               </button>
             </div>
 
@@ -136,9 +117,7 @@ gtag('event', 'subscribe', {
                   height={130}
                   className="mb-4 h-auto w-28"
                 />
-                <h2 className="text-[22px] font-bold text-[#3D3D3D]">
-                  Congratulations
-                </h2>
+                <h2 className="text-[22px] font-bold text-[#3D3D3D]">Congratulations</h2>
                 <p className="mb-4 text-[12px] leading-relaxed text-[#575757]">
                   You&apos;ve successfully subscribed to Women World.
                 </p>
@@ -149,7 +128,7 @@ gtag('event', 'subscribe', {
                   className="mb-4 mt-1 w-full rounded-xl px-4 py-3 font-semibold tracking-wide text-white hover:opacity-90"
                   style={{ backgroundColor: BRAND.pink }}
                 >
-                  Submit
+                  Submit                
                 </button>
               </div>
             ) : (
@@ -162,12 +141,9 @@ gtag('event', 'subscribe', {
                   className="h-auto w-28"
                 />
                 <div className="space-y-1.5">
-                  <h2 className="text-[22px] font-bold text-[#3D3D3D]">
-                    Error
-                  </h2>
+                  <h2 className="text-[22px] font-bold text-[#3D3D3D]">Error</h2>
                   <p className="text-[14px] leading-relaxed text-[#575757]">
-                    Oops! Unable to verify wallet details. Contact our helpline
-                    for assistance.
+                    Oops! Unable to verify wallet details. Contact our helpline for assistance.
                   </p>
                 </div>
                 <button
@@ -189,13 +165,7 @@ gtag('event', 'subscribe', {
 
 export default function JazzCashSuccessPage() {
   return (
-    <Suspense
-      fallback={
-        <div
-          className={`${poppins.className} min-h-screen w-full bg-[#f7f7f8]`}
-        />
-      }
-    >
+    <Suspense fallback={<div className={`${poppins.className} min-h-screen w-full bg-[#f7f7f8]`} />}>
       <JazzCashSuccessContent />
     </Suspense>
   );

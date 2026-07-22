@@ -4,7 +4,7 @@ import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import Script from "next/script";
 import CryptoJS from "crypto-js";
-import { Poppins } from "next/font/google";
+import { Bebas_Neue, Poppins } from "next/font/google";
 import Image from "next/image";
 import { checkSubscriberWw } from "@/apis/request";
 import { devopsLog } from "@/utils/devopsLog";
@@ -16,6 +16,11 @@ const poppins = Poppins({
   subsets: ["latin"],
   weight: ["300", "400", "600", "700"],
 });
+
+const bebasneue = Bebas_Neue({
+  subsets: ["latin"],
+  weight: ["400"]
+})
 
 const META_PIXEL_ID = "1000950782856119";
 const META_PIXEL_SCRIPT = `!function(f,b,e,v,n,t,s)
@@ -70,10 +75,10 @@ const IconSos = () => (
 );
 
 const FEATURES = [
-  { icon: IconCycle, label: "Cycle Tracking" },
-  { icon: IconInsights, label: "Personalised Insights" },
-  { icon: IconCommunity, label: "Supportive Communities" },
-  { icon: IconSos, label: "SOS Assistance" },
+  { icon: IconCycle, label: "Cycle<br/> Tracking" },
+  { icon: IconInsights, label: "Personalised<br /> Insights" },
+  { icon: IconCommunity, label: "Supportive<br /> Communities" },
+  { icon: IconSos, label: "SOS<br /> Assistance" },
 ];
 
 export default function JazzCashPage() {
@@ -87,10 +92,10 @@ export default function JazzCashPage() {
   const JAZZCASH_ACTION_URL =
     "https://pgw.jazzcash.com.pk/WalletLinkingPortal/wallet/LinkWallet";
 
-  const salt = "9t78tyhgz1";
-  const ID = "5465465";
-  const password = "datz5023ez";
-  const rurl = "https://apijc.jazzbusuu.com/sendToken_busuu.php";
+  const salt = "4tv9xbbda5";
+  const ID = "10031039";
+  const password = "6zv8x11324";
+  const rurl = "https://apijc.womenworld.com.pk/jazzWalletCallback_ww";
 
 
   const generateHMAC = (data: string, key: string) => {
@@ -99,21 +104,21 @@ export default function JazzCashPage() {
 
   const hasTrackedSubscribe = useRef(false);
 
-  useEffect(() => {
-    fetch("http://fitflexapp.com/api/get_head_enrichment.php")
-      .then((res) => res.json())
-      .then((data) => {
-        const number = data?.msisdn || data?.data;
-        const statusOK = data?.status === 200 || data?.status === "200";
+  // useEffect(() => {
+  //   fetch("http://fitflexapp.com/api/get_head_enrichment.php")
+  //     .then((res) => res.json())
+  //     .then((data) => {
+  //       const number = data?.msisdn || data?.data;
+  //       const statusOK = data?.status === 200 || data?.status === "200";
 
-        if (statusOK && number) {
-          setPhoneNumber(number.replace(/[^0-9]/g, ""));
-        }
-      })
-      .catch(() => {
-        // silent
-      });
-  }, []);
+  //       if (statusOK && number) {
+  //         setPhoneNumber(number.replace(/[^0-9]/g, ""));
+  //       }
+  //     })
+  //     .catch(() => {
+  //       // silent
+  //     });
+  // }, []);
 
   useEffect(() => {
     const params = new URLSearchParams(window.location.search);
@@ -303,19 +308,17 @@ export default function JazzCashPage() {
   );
 
   const renderHeadline = (mobile = false) => (
-    <div className={mobile ? "flex w-full flex-col items-center gap-1" : "flex flex-col gap-2"}>
+    <div className={` ${bebasneue.className}  ${mobile ? "flex w-full flex-col items-center gap-1" : "flex flex-col gap-2"}`}>
       <span
-        className={`relative z-10 block w-fit max-w-full break-words rounded-md text-center font-extrabold uppercase leading-tight text-white ${
-          mobile ? "-rotate-3 px-4 py-2 text-[16px]" : "-rotate-2 px-8 py-4 text-[36px]"
-        }`}
+        className={`relative z-10 block w-fit max-w-full break-words rounded-md lg:rounded-2xl text-center font-normal uppercase leading-tight text-white ${mobile ? "-rotate-3 px-4 py-2 text-[24px]" : "-rotate-2 px-8 py-4 text-[48px] xl:text-[52px]"
+          }`}
         style={{ backgroundColor: BRAND.pink }}
       >
         One App for Period Tracking
       </span>
       <span
-        className={`relative z-0 block w-fit max-w-full break-words rounded-md text-center font-extrabold uppercase leading-tight text-white ${
-          mobile ? "-mt-1 -rotate-1 px-4 py-2 text-[16px]" : "-mt-2.5 rotate-0 px-8 py-4 text-[36px]"
-        }`}
+        className={`relative z-0 block w-fit max-w-full break-words rounded-md lg:rounded-2xl text-center font-normal uppercase leading-tight text-white ${mobile ? "-mt-1 -rotate-1 px-4 py-2 text-[24px]" : "-mt-2.5 rotate-0 px-8 py-4 text-[48px] xl:text-[52px]"
+          }`}
         style={{ backgroundColor: BRAND.purple }}
       >
         Health, Safety &amp; Community
@@ -328,15 +331,14 @@ export default function JazzCashPage() {
       {FEATURES.map(({ icon: Icon, label }) => (
         <div
           key={label}
-          className={`flex items-center gap-3 rounded-2xl border border-[#e6e6ea] bg-white ${
-            mobile ? "p-4" : "p-5"
-          }`}
+          className={`flex items-center gap-3 rounded-2xl border border-[#e6e6ea] bg-white ${mobile ? "p-4" : "p-5"
+            }`}
         >
           <span className={`shrink-0 ${mobile ? "h-8 w-8" : "h-9 w-9"}`}>
             <Icon />
           </span>
-          <span className={`font-semibold leading-snug text-[#232329] ${mobile ? "text-[13px]" : "text-[16px]"}`}>
-            {label}
+          <span className={`font-semibold leading-snug text-[#232329] ${mobile ? "text-[13px]" : "text-[16px]"}`}
+            dangerouslySetInnerHTML={{ __html: label }} >
           </span>
         </div>
       ))}
@@ -345,14 +347,13 @@ export default function JazzCashPage() {
 
   const renderPhoneInput = (compact = false) => (
     <div
-      className={`grid w-full grid-cols-[40px_1px_minmax(0,1fr)_auto] items-center rounded-2xl border border-[#e1e1e1] bg-white ${
-        compact ? "h-[64px] px-5" : "h-[64px] px-6"
-      }`}
+      className={`grid w-full grid-cols-[40px_1px_minmax(0,1fr)_auto] items-center rounded-2xl border border-[#e1e1e1] bg-white ${compact ? "h-[64px] px-5" : "h-[64px] px-6"
+        }`}
     >
       <span className="flex items-center justify-start">
-       <svg width="21" height="24" viewBox="0 0 21 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-<path d="M20.1078 16.7464L15.58 14.5246C15.3866 14.4302 15.1716 14.4103 14.9675 14.4679C14.7633 14.5255 14.581 14.6575 14.448 14.844L12.4429 17.649C9.29598 15.9502 6.76344 13.0505 5.27971 9.44732L7.72956 7.15146C7.89275 6.99949 8.00825 6.79078 8.05859 6.55692C8.10892 6.32307 8.09134 6.0768 8.0085 5.85541L6.06803 0.671212C5.97711 0.432558 5.81632 0.237704 5.61337 0.120251C5.41042 0.00279815 5.17804 -0.0298927 4.9563 0.0278157L0.751934 1.13872C0.538146 1.19524 0.347404 1.33307 0.210839 1.5297C0.0742738 1.72633 -4.9248e-05 1.97016 2.44832e-08 2.22138C2.44832e-08 14.0941 8.40468 23.6988 18.7579 23.6988C18.9774 23.6989 19.1904 23.6139 19.3623 23.4575C19.5341 23.3012 19.6545 23.0827 19.7039 22.8378L20.6741 18.0239C20.7242 17.7688 20.6951 17.5017 20.5917 17.2685C20.4883 17.0353 20.3172 16.8507 20.1078 16.7464Z" fill={BRAND.pink}/>
-</svg>
+        <svg width="21" height="24" viewBox="0 0 21 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M20.1078 16.7464L15.58 14.5246C15.3866 14.4302 15.1716 14.4103 14.9675 14.4679C14.7633 14.5255 14.581 14.6575 14.448 14.844L12.4429 17.649C9.29598 15.9502 6.76344 13.0505 5.27971 9.44732L7.72956 7.15146C7.89275 6.99949 8.00825 6.79078 8.05859 6.55692C8.10892 6.32307 8.09134 6.0768 8.0085 5.85541L6.06803 0.671212C5.97711 0.432558 5.81632 0.237704 5.61337 0.120251C5.41042 0.00279815 5.17804 -0.0298927 4.9563 0.0278157L0.751934 1.13872C0.538146 1.19524 0.347404 1.33307 0.210839 1.5297C0.0742738 1.72633 -4.9248e-05 1.97016 2.44832e-08 2.22138C2.44832e-08 14.0941 8.40468 23.6988 18.7579 23.6988C18.9774 23.6989 19.1904 23.6139 19.3623 23.4575C19.5341 23.3012 19.6545 23.0827 19.7039 22.8378L20.6741 18.0239C20.7242 17.7688 20.6951 17.5017 20.5917 17.2685C20.4883 17.0353 20.3172 16.8507 20.1078 16.7464Z" fill={BRAND.pink} />
+        </svg>
 
       </span>
       <span className="h-7 w-px bg-[#e7e7e7]" />
@@ -377,9 +378,8 @@ export default function JazzCashPage() {
 
   const renderSubscribeCard = (mobile = false) => (
     <div
-      className={`w-full rounded-[28px] border border-[#e8d0d4] bg-[#F7F7F7] shadow-[0px_0px_18px_0px_#C84C6366] ${
-        mobile ? "px-4 py-7" : "px-9 py-9"
-      }`}
+      className={`w-full rounded-[28px] border border-[#e8d0d4] bg-[#F7F7F7] shadow-[0px_0px_18px_0px_#C84C6366] ${mobile ? "px-4 py-7" : "px-9 py-9"
+        }`}
     >
       <h2 className={`font-semibold text-[#3D3D3D] ${mobile ? "text-[16px]" : "text-[19px]"}`}>
         Start Tracking Your Cycle Today
@@ -393,9 +393,8 @@ export default function JazzCashPage() {
       {apiError ? <div className="mt-3 text-center text-sm font-semibold text-red-600">{apiError}</div> : null}
 
       <button
-        className={`mt-5 flex w-full cursor-pointer items-center justify-center gap-2 rounded-2xl font-bold text-white disabled:cursor-not-allowed disabled:opacity-70 ${
-          mobile ? "h-[54px] text-[17px]" : "h-[58px] text-[18px]"
-        }`}
+        className={`mt-5 flex w-full cursor-pointer items-center justify-center gap-2 rounded-2xl font-bold text-white disabled:cursor-not-allowed disabled:opacity-70 ${mobile ? "h-[54px] text-[17px]" : "h-[58px] text-[18px]"
+          }`}
         style={{ backgroundColor: BRAND.pink }}
         onClick={handleProceed}
         disabled={loading}
@@ -426,7 +425,7 @@ export default function JazzCashPage() {
     </div>
   );
 
-  
+
 
   return (
     <div className={`${poppins.className} relative min-h-screen w-full overflow-x-hidden bg-white`}>
@@ -463,7 +462,7 @@ export default function JazzCashPage() {
 
             <div className="flex flex-col gap-6">
               {renderSubscribeCard()}
-              
+
             </div>
           </div>
         </div>
@@ -476,7 +475,7 @@ export default function JazzCashPage() {
           {renderHeadline(true)}
           <div className="w-full">{renderFeatureGrid(true)}</div>
           {renderSubscribeCard(true)}
-        
+
         </div>
       </div>
 
