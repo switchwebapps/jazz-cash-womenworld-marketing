@@ -3,21 +3,20 @@ export type CheckSubscriberWwData = {
   isExist?: boolean;
   isSubscriber?: boolean;
   msisdn?: string;
+  status?: any;
+  package_id?: any;
   message?: string;
 };
 
 /**
  * Checks subscriber via Women World API.
- * Proxied through /api/checkSubscriber because the upstream requires GET + JSON body,
- * which browsers cannot send.
+ * Proxied through /api/checkSubscriber to keep the upstream URL server-side.
  */
 export async function checkSubscriberWw(mobileNumber: string) {
   try {
-    const res = await fetch("/api/checkSubscriber", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ msisdn: mobileNumber }),
-    });
+    const res = await fetch(
+      `/api/checkSubscriber?msisdn=${encodeURIComponent(mobileNumber)}`
+    );
     const json = (await res.json()) as CheckSubscriberWwData;
     return { ok: res.ok, status: res.status, data: json };
   } catch (err: unknown) {

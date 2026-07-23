@@ -64,9 +64,9 @@ import { NextResponse } from "next/server";
 
 const UPSTREAM = "https://apijc.womenworld.com.pk/checkSubscriber_ww";
 
-export async function POST(request: Request) {
+export async function GET(request: Request) {
   try {
-    const { msisdn } = (await request.json()) as { msisdn?: string };
+    const msisdn = new URL(request.url).searchParams.get("msisdn");
 
     if (!msisdn) {
       return NextResponse.json(

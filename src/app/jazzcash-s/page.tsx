@@ -17,8 +17,8 @@ const BRAND = {
   purple: "#6B2D85",
 };
 
-const GTAG_ID = "AW-16799181696";
-const CONVERSION_LABEL = "abKMCOmHhbEcEIDXvMo-";
+const GTAG_ID = 'AW-16798930375';
+const CONVERSION_LABEL = "NZIvCMed2tQcEMerrco-";
 
 declare global {
   interface Window {

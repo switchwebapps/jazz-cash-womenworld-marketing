@@ -203,11 +203,20 @@ export default function JazzCashPage() {
         return;
       }
 
-      if (data?.isSubscriber === true) {
-        error = "You are already subscribed to service";
-        event = "validation_error";
-        setApiError(error);
-        return;
+      // if (data?.isExist === true) {
+      //   error = "You are already subscribed to service";
+      //   event = "api_error";
+      //   setApiError(error);
+      //   return;
+      // }
+
+      if (data?.status === "1" || data?.status === 1) {
+        if (data?.package_id !== 1) {
+          error = "You are already subscribed to service";
+          event = "validation_error";
+          setApiError(error);
+          return;
+        }
       }
 
       const submitResult = await finalizeProceed(msisdn);
