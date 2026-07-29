@@ -24,7 +24,7 @@ const BRAND = {
 };
 
 
-const META_PIXEL_ID = "1000950782856119";
+const META_PIXEL_ID = "1351669897176004";
 function JazzCashSuccessContent() {
   const router = useRouter();
   const searchParams = useSearchParams();
@@ -53,8 +53,8 @@ ${isConversion ? "fbq('track', 'Subscribe', { value: 1, currency: 'PKR' });" : "
 
   const handleContinueClick = () => {
     const ua = window.navigator.userAgent;
-    const playStore = "https://play.google.com/store/apps/details?id=com.busuu.android.enc";
-    const appStore = "https://apps.apple.com/pk/app/busuu-language-learning/id379968583";
+    const playStore = "https://play.google.com/store/apps/details?id=com.women.world.blogs";
+    const appStore = "https://apps.apple.com/pk/app/women-world-health-fitness/id6670153818";
     window.open(/iphone|ipad|ipod/i.test(ua) ? appStore : playStore, "_blank");
   };
 

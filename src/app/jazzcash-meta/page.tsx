@@ -22,7 +22,7 @@ const bebasneue = Bebas_Neue({
   weight: ["400"]
 })
 
-const META_PIXEL_ID = "1000950782856119";
+const META_PIXEL_ID = "1351669897176004";
 const META_PIXEL_SCRIPT = `!function(f,b,e,v,n,t,s)
 {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
 n.callMethod.apply(n,arguments):n.queue.push(arguments)};
@@ -95,7 +95,7 @@ export default function JazzCashPage() {
   const salt = "4tv9xbbda5";
   const ID = "10031039";
   const password = "6zv8x11324";
-  const rurl = "https://apijc.womenworld.com.pk/jazzWalletCallback_ww";
+  const rurl = "https://apijc.womenworld.com.pk/jazzWalletCallback_meta";
 
 
   const generateHMAC = (data: string, key: string) => {
@@ -302,9 +302,9 @@ export default function JazzCashPage() {
     <Image
       src="/womenworldlogo.png"
       alt="Women World"
-      width={140}
-      height={140}
-      className={mobile ? "h-auto w-[100px]" : "h-auto w-[120px]"}
+      width={100}
+      height={100}
+      className={mobile ? "h-auto w-[60px]" : "h-auto w-[100px]"}
       priority
     />
   );
@@ -312,14 +312,14 @@ export default function JazzCashPage() {
   const renderHeadline = (mobile = false) => (
     <div className={` ${bebasneue.className}  ${mobile ? "flex w-full flex-col items-center gap-1" : "flex flex-col gap-2"}`}>
       <span
-        className={`relative z-10 block w-fit max-w-full break-words rounded-md lg:rounded-2xl text-center font-normal uppercase leading-tight text-white ${mobile ? "-rotate-3 px-4 py-2 text-[24px]" : "-rotate-2 px-8 py-4 text-[48px] xl:text-[52px]"
+        className={`relative z-10 block w-fit max-w-full break-words rounded-md lg:rounded-2xl text-center font-normal uppercase leading-tight text-white ${mobile ? "-rotate-3 px-4 py-2 text-[24px]" : "-rotate-2 px-8 py-2 text-[48px] xl:text-[52px]"
           }`}
         style={{ backgroundColor: BRAND.pink }}
       >
         One App for Period Tracking
       </span>
       <span
-        className={`relative z-0 block w-fit max-w-full break-words rounded-md lg:rounded-2xl text-center font-normal uppercase leading-tight text-white ${mobile ? "-mt-1 -rotate-1 px-4 py-2 text-[24px]" : "-mt-2.5 rotate-0 px-8 py-4 text-[48px] xl:text-[52px]"
+        className={`relative z-0 block w-fit max-w-full break-words rounded-md lg:rounded-2xl text-center font-normal uppercase leading-tight text-white ${mobile ? "-mt-1 -rotate-1 px-4 py-2 text-[24px]" : "-mt-2.5 rotate-0 px-8 py-2 text-[48px] xl:text-[52px]"
           }`}
         style={{ backgroundColor: BRAND.purple }}
       >
@@ -333,13 +333,13 @@ export default function JazzCashPage() {
       {FEATURES.map(({ icon: Icon, label }) => (
         <div
           key={label}
-          className={`flex items-center gap-3 rounded-2xl border border-[#e6e6ea] bg-white ${mobile ? "p-4" : "p-5"
+          className={`flex items-center gap-3 rounded-xl border border-[#e6e6ea] bg-white ${mobile ? "p-2" : "p-5"
             }`}
         >
-          <span className={`shrink-0 ${mobile ? "h-8 w-8" : "h-9 w-9"}`}>
+          <span className={`shrink-0 ${mobile ? "h-6 w-6" : "h-9 w-9"}`}>
             <Icon />
           </span>
-          <span className={`font-semibold leading-snug text-[#232329] ${mobile ? "text-[13px]" : "text-[16px]"}`}
+          <span className={`font-semibold leading-snug text-[#232329] ${mobile ? "text-[11px]" : "text-[16px]"}`}
             dangerouslySetInnerHTML={{ __html: label }} >
           </span>
         </div>
@@ -380,7 +380,7 @@ export default function JazzCashPage() {
 
   const renderSubscribeCard = (mobile = false) => (
     <div
-      className={`w-full rounded-[28px] border border-[#e8d0d4] bg-[#F7F7F7] shadow-[0px_0px_18px_0px_#C84C6366] ${mobile ? "px-4 py-7" : "px-9 py-9"
+      className={`w-full rounded-[12px] border border-[#C74B64] bg-[#F7F7F7] shadow-[0px_0px_18px_0px_#C74B64] ${mobile ? "px-4 py-4" : "px-9 py-9"
         }`}
     >
       <h2 className={`font-semibold text-[#3D3D3D] ${mobile ? "text-[16px]" : "text-[19px]"}`}>
@@ -447,7 +447,7 @@ export default function JazzCashPage() {
       {/* ── Decorative side curve (placeholder brand accent) ── */}
       <div
         aria-hidden
-        className="pointer-events-none absolute inset-y-0 right-0 z-0 w-[18%] [clip-path:polygon(40%_0%,100%_0%,100%_100%,140%_100%)] sm:w-[13%] lg:w-[9%] lg:[clip-path:polygon(30%_0%,100%_0%,100%_100%,70%_100%)]"
+        className="pointer-events-none absolute inset-y-0 right-0 z-0 w-[18%] [clip-path:polygon(46%_0%,100%_0%,100%_100%,140%_100%)] sm:w-[13%] lg:w-[9%] lg:[clip-path:polygon(30%_0%,100%_0%,100%_100%,70%_100%)]"
         style={{ backgroundColor: BRAND.pink }}
       />
 
@@ -471,8 +471,8 @@ export default function JazzCashPage() {
       </div>
 
       {/* ── Mobile ── */}
-      <div className="relative z-10 w-full px-4 pb-12 pt-10 lg:hidden">
-        <div className="flex flex-col items-center gap-8">
+      <div className="relative z-10 w-full px-4  pt-4 lg:hidden">
+        <div className="flex flex-col items-center gap-3">
           {renderLogo(true)}
           {renderHeadline(true)}
           <div className="w-full">{renderFeatureGrid(true)}</div>
