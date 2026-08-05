@@ -95,7 +95,7 @@ export default function JazzCashPage() {
   const salt = "4tv9xbbda5";
   const ID = "10031039";
   const password = "6zv8x11324";
-  const rurl = "https://apijc.womenworld.com.pk/jazzWalletCallback_ww";
+  const rurl = "https://apijc.womenworld.com.pk/jazzWalletCallback_tiktok";
 
 
   const generateHMAC = (data: string, key: string) => {
