@@ -306,13 +306,13 @@ export default function JazzCashPage() {
       {FEATURES.map(({ icon: Icon, label }) => (
         <div
           key={label}
-          className={`flex items-center gap-3 rounded-2xl border border-[#e6e6ea] bg-white ${mobile ? "p-2" : "p-5"
+          className={`flex items-center gap-3 rounded-xl border border-[#e6e6ea] bg-white ${mobile ? "p-2" : "p-5"
             }`}
         >
           <span className={`shrink-0 ${mobile ? "h-5 w-5" : "h-9 w-9"}`}>
             <Icon />
           </span>
-          <span className={`font-semibold leading-snug text-[#232329] ${mobile ? "text-[13px]" : "text-[16px]"}`}
+          <span className={`font-semibold leading-snug text-[#232329] ${mobile ? "text-[11px]" : "text-[16px]"}`}
             dangerouslySetInnerHTML={{ __html: label }} >
           </span>
         </div>
@@ -432,7 +432,7 @@ export default function JazzCashPage() {
 
       {/* ── Mobile ── */}
       <div className="relative z-10 flex h-full w-full items-center justify-center px-3 py-4 lg:hidden">
-        <div className="flex w-full max-w-[420px] flex-col items-center gap-6">
+        <div className="flex w-full max-w-[420px] flex-col items-center gap-3">
           {renderLogo(true)}
           {renderHeadline(true)}
           <div className="w-full">{renderFeatureGrid(true)}</div>
