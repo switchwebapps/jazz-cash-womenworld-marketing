@@ -304,7 +304,7 @@ export default function JazzCashPage() {
       alt="Women World"
       width={140}
       height={140}
-      className={mobile ? "h-auto w-[100px]" : "h-auto w-[120px]"}
+      className={mobile ? "h-auto w-[50px]" : "h-auto w-[77px]"}
       priority
     />
   );
