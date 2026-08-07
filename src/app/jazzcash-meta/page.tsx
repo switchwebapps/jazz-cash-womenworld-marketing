@@ -12,16 +12,6 @@ import { devopsLog } from "@/utils/devopsLog";
 const SERVICE = "WomenWorld";
 const LANDING = "jazzcash-meta";
 
-const poppins = Poppins({
-  subsets: ["latin"],
-  weight: ["300", "400", "600", "700"],
-});
-
-const bebasneue = Bebas_Neue({
-  subsets: ["latin"],
-  weight: ["400"]
-})
-
 const META_PIXEL_ID = "1351669897176004";
 const META_PIXEL_SCRIPT = `!function(f,b,e,v,n,t,s)
 {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
@@ -39,39 +29,30 @@ const BRAND = {
   purple: "#6B2D85",
 };
 
+const bebasNeue = Bebas_Neue({
+  subsets: ["latin"],
+  weight: "400",
+});
+
+const poppins = Poppins({
+  subsets: ["latin"],
+  weight: ["300", "400", "600", "700"],
+});
+
 const IconCycle = () => (
-  <svg className="h-full w-full" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
-    <rect x="6" y="8" width="28" height="26" rx="4" fill="#FCE8EB" stroke="#C84C63" strokeWidth="1.8" />
-    <path d="M6 14h28" stroke="#C84C63" strokeWidth="1.8" />
-    <path d="M13 5v6M27 5v6" stroke="#C84C63" strokeWidth="1.8" strokeLinecap="round" />
-    <path d="M20 22c0-3.2 2.8-5.2 2.8-5.2S25.6 18.8 25.6 22c0 1.55-1.25 2.8-2.8 2.8S20 23.55 20 22Z" fill="#E23B4A" />
-  </svg>
+  <Image src="/icon1.png" alt="Cycle" width={100} height={100} />
 );
 
 const IconInsights = () => (
-  <svg className="h-full w-full" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
-    <path d="M20 6c-5 0-9 3.8-9 8.6 0 3.2 1.7 5.9 4.2 7.4V26a2 2 0 0 0 2 2h5.6a2 2 0 0 0 2-2v-4c2.5-1.5 4.2-4.2 4.2-7.4C29 9.8 25 6 20 6Z" fill="#F6E8A8" stroke="#E8B923" strokeWidth="1.6" />
-    <path d="M16.5 30h7M17.5 33h5" stroke="#E8B923" strokeWidth="1.8" strokeLinecap="round" />
-    <circle cx="20" cy="15" r="2.2" fill="#F5C518" />
-  </svg>
+  <Image src="/icon2.png" alt="Insights" width={100} height={100} />
 );
 
 const IconCommunity = () => (
-  <svg className="h-full w-full" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
-    <circle cx="14" cy="14" r="4.2" fill="#8B6AD4" />
-    <circle cx="26" cy="14" r="4.2" fill="#C84C63" />
-    <circle cx="20" cy="18" r="4.5" fill="#6B2D85" />
-    <path d="M7 30c0-3.5 3.1-6.2 7-6.2M33 30c0-3.5-3.1-6.2-7-6.2M12.5 30c0-4 3.4-7 7.5-7s7.5 3 7.5 7" stroke="#6B2D85" strokeWidth="2.2" strokeLinecap="round" />
-  </svg>
+  <Image src="/icon3.png" alt="Community" width={100} height={100} />
 );
 
 const IconSos = () => (
-  <svg className="h-full w-full" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
-    <path d="M12 24h16l-1.5-8.5a6.5 6.5 0 0 0-13 0L12 24Z" fill="#FF6B6B" />
-    <rect x="10" y="24" width="20" height="5" rx="2" fill="#E23B4A" />
-    <path d="M20 6v3.5M11 9.5l2.2 2.2M29 9.5l-2.2 2.2" stroke="#E23B4A" strokeWidth="2" strokeLinecap="round" />
-    <circle cx="20" cy="18" r="2" fill="white" />
-  </svg>
+  <Image src="/icon4.png" alt="SOS" width={100} height={100} />
 );
 
 const FEATURES = [
@@ -238,7 +219,7 @@ export default function JazzCashPage() {
       }
 
       if (data?.status === "1" || data?.status === 1) {
-        if (data?.package_id == 1) {
+        if (data?.package_id !== 1) {
           error = "You are already subscribed to service";
           event = "validation_error";
           setApiError(error);
@@ -300,26 +281,26 @@ export default function JazzCashPage() {
 
   const renderLogo = (mobile = false) => (
     <Image
-      src="/womenworldlogo.png"
+      src="/womenworldlogo.webp"
       alt="Women World"
-      width={100}
-      height={100}
-      className={mobile ? "h-auto w-[60px]" : "h-auto w-[100px]"}
+      width={140}
+      height={140}
+      className={mobile ? "h-auto w-[60px]" : "h-auto w-[100px] mt-8 mb-4"}
       priority
     />
   );
 
   const renderHeadline = (mobile = false) => (
-    <div className={` ${bebasneue.className}  ${mobile ? "flex w-full flex-col items-center gap-1" : "flex flex-col gap-2"}`}>
+    <div className={` ${mobile ? "flex w-full flex-col items-center gap-1" : "flex flex-col gap-2"}`}>
       <span
-        className={`relative z-10 block w-fit max-w-full break-words rounded-md lg:rounded-2xl text-center font-normal uppercase leading-tight text-white ${mobile ? "-rotate-3 px-4 py-2 text-[24px]" : "-rotate-2 px-8 py-2 text-[48px] xl:text-[52px]"
+        className={`relative z-10 block w-fit max-w-full ${bebasNeue.className} rounded-md lg:rounded-2xl text-center font-bold uppercase leading-tight text-white ${mobile ? "-rotate-3 px-4 py-2 text-[20px]" : "-rotate-2 px-8 py-1 text-[48px] xl:text-[52px]"
           }`}
         style={{ backgroundColor: BRAND.pink }}
       >
         One App for Period Tracking
       </span>
       <span
-        className={`relative z-0 block w-fit max-w-full break-words rounded-md lg:rounded-2xl text-center font-normal uppercase leading-tight text-white ${mobile ? "-mt-1 -rotate-1 px-4 py-2 text-[24px]" : "-mt-2.5 rotate-0 px-8 py-2 text-[48px] xl:text-[52px]"
+        className={`relative z-0 block w-fit max-w-full ${bebasNeue.className} rounded-md lg:rounded-2xl text-center font-bold uppercase leading-tight text-white ${mobile ? "-mt-1 -rotate-1 px-4 py-2 text-[20px]" : "-mt-2.5 rotate-0 px-8 py-1 text-[48px] xl:text-[52px]"
           }`}
         style={{ backgroundColor: BRAND.purple }}
       >
@@ -329,14 +310,14 @@ export default function JazzCashPage() {
   );
 
   const renderFeatureGrid = (mobile = false) => (
-    <div className={`grid grid-cols-2 ${mobile ? "gap-3 pr-3" : "gap-4 w-[490px]"}`}>
+    <div className={`grid grid-cols-2 ${mobile ? "gap-2 max-w-[300px] mx-auto" : "w-full max-w-[490px] gap-4"}`}>
       {FEATURES.map(({ icon: Icon, label }) => (
         <div
           key={label}
           className={`flex items-center gap-3 rounded-xl border border-[#e6e6ea] bg-white ${mobile ? "p-2" : "p-5"
             }`}
         >
-          <span className={`shrink-0 ${mobile ? "h-6 w-6" : "h-9 w-9"}`}>
+          <span className={`shrink-0 ${mobile ? "h-5 w-5" : "h-9 w-9"}`}>
             <Icon />
           </span>
           <span className={`font-semibold leading-snug text-[#232329] ${mobile ? "text-[11px]" : "text-[16px]"}`}
@@ -349,22 +330,21 @@ export default function JazzCashPage() {
 
   const renderPhoneInput = (compact = false) => (
     <div
-      className={`grid w-full grid-cols-[40px_1px_minmax(0,1fr)_auto] items-center rounded-2xl border border-[#e1e1e1] bg-white ${compact ? "h-[64px] px-5" : "h-[64px] px-6"
+      className={`grid w-full grid-cols-[40px_1px_minmax(0,1fr)_auto] items-center rounded-2xl border border-[#e1e1e1] bg-white ${compact ? "h-[56px] px-4" : "h-[56px] px-5"
         }`}
     >
       <span className="flex items-center justify-start">
         <svg width="21" height="24" viewBox="0 0 21 24" fill="none" xmlns="http://www.w3.org/2000/svg">
           <path d="M20.1078 16.7464L15.58 14.5246C15.3866 14.4302 15.1716 14.4103 14.9675 14.4679C14.7633 14.5255 14.581 14.6575 14.448 14.844L12.4429 17.649C9.29598 15.9502 6.76344 13.0505 5.27971 9.44732L7.72956 7.15146C7.89275 6.99949 8.00825 6.79078 8.05859 6.55692C8.10892 6.32307 8.09134 6.0768 8.0085 5.85541L6.06803 0.671212C5.97711 0.432558 5.81632 0.237704 5.61337 0.120251C5.41042 0.00279815 5.17804 -0.0298927 4.9563 0.0278157L0.751934 1.13872C0.538146 1.19524 0.347404 1.33307 0.210839 1.5297C0.0742738 1.72633 -4.9248e-05 1.97016 2.44832e-08 2.22138C2.44832e-08 14.0941 8.40468 23.6988 18.7579 23.6988C18.9774 23.6989 19.1904 23.6139 19.3623 23.4575C19.5341 23.3012 19.6545 23.0827 19.7039 22.8378L20.6741 18.0239C20.7242 17.7688 20.6951 17.5017 20.5917 17.2685C20.4883 17.0353 20.3172 16.8507 20.1078 16.7464Z" fill={BRAND.pink} />
         </svg>
-
       </span>
       <span className="h-7 w-px bg-[#e7e7e7]" />
       <input
         type="tel"
         inputMode="numeric"
-        pattern="[+0-9 ]*"
+        pattern="[+0-9]*"
         maxLength={13}
-        className="min-w-0 bg-transparent pl-4 text-[17px] font-light text-[#7f7f86] outline-none placeholder:text-[#9a9aa0]"
+        className="min-w-0 bg-transparent pl-2  md:pl-4 text-[16px] font-light text-[#7f7f86] outline-none placeholder:text-[#9a9aa0]"
         placeholder="+92 XXXXXXXXX"
         aria-label="Mobile number"
         value={displayPhoneNumber}
@@ -373,20 +353,20 @@ export default function JazzCashPage() {
         }}
       />
       <span className="flex items-center justify-end pl-3">
-        <Image src="/jazzcashlogo.png" alt="JazzCash" width={92} height={30} className="h-auto w-[88px]" />
+        <Image src="/jazzcashlogo.png" alt="JazzCash" width={92} height={30} className="h-auto w-[48px] lg:w-[66px]" />
       </span>
     </div>
   );
 
   const renderSubscribeCard = (mobile = false) => (
     <div
-      className={`w-full rounded-[12px] border border-[#C74B64] bg-[#F7F7F7] shadow-[0px_0px_18px_0px_#C74B64] ${mobile ? "px-4 py-4" : "px-9 py-9"
+      className={` w-full rounded-[12px] border border-[#C74B64] bg-[#F5F5F5] shadow-[0px_0px_18px_0px_#C74B64] ${mobile ? "px-6 py-5 mt-2" : "px-9 py-9"
         }`}
     >
       <h2 className={`font-semibold text-[#3D3D3D] ${mobile ? "text-[16px]" : "text-[19px]"}`}>
         Start Tracking Your Cycle Today
       </h2>
-      <p className={`mt-1.5 text-[#898989] ${mobile ? "text-[10px]" : "text-[13px]"}`}>
+      <p className={` mt-1.5 text-[#898989] ${mobile ? "text-[10px]" : "text-[13px]"}`}>
         Enter your Jazz Cash number.
       </p>
 
@@ -395,7 +375,7 @@ export default function JazzCashPage() {
       {apiError ? <div className="mt-3 text-center text-sm font-semibold text-red-600">{apiError}</div> : null}
 
       <button
-        className={`mt-5 flex w-full cursor-pointer items-center justify-center gap-2 rounded-2xl font-bold text-white disabled:cursor-not-allowed disabled:opacity-70 ${mobile ? "h-[54px] text-[17px]" : "h-[58px] text-[18px]"
+        className={`mt-5 flex w-full cursor-pointer items-center justify-center gap-2 rounded-lg font-bold text-white disabled:cursor-not-allowed disabled:opacity-70 ${mobile ? "h-[50px] text-[16px]" : "h-[58px] text-[18px]"
           }`}
         style={{ backgroundColor: BRAND.pink }}
         onClick={handleProceed}
@@ -409,28 +389,32 @@ export default function JazzCashPage() {
         )}
       </button>
 
-      <div className={`mt-4 text-center text-[#3D3D3D] ${mobile ? "text-[14px]" : "text-[16px]"}`}>
+      <div className={`mt-2 text-center text-[#3D3D3D] ${mobile ? "text-[13px]" : "text-[16px]"}`}>
         Rs 300/Month
       </div>
 
-      <p className={`mt-2 text-center leading-relaxed text-[#272727] ${mobile ? "text-[11px]" : "text-[13px]"}`}>
-        By proceeding you agree to{" "}
-        <Link href="/terms" target="_blank" rel="noopener noreferrer" className="font-semibold underline underline-offset-2">
-          Terms &amp; Conditions
-        </Link>
-        ,{" "}
-        <Link href="/privacypolicy" target="_blank" rel="noopener noreferrer" className="font-semibold underline underline-offset-2">
-          Privacy Policy
-        </Link>{" "}
-        &amp; Auto-recursive payments
-      </p>
+      <div
+        className={`mt- flex items-center justify-center text-[#4a4a4e] ${mobile ? "gap-2 text-[11px]" : "gap-2.5 text-[13px]"
+          }`}
+      >
+
+        <p className={`mt-2 text-center leading-relaxed text-[#272727] ${mobile ? "text-[10px]" : "text-[13px]"}`}>
+          By proceeding you agree to{" "}
+          <Link href="/terms" target="_blank" rel="noopener noreferrer" className="font-semibold underline underline-offset-2">
+            Terms &amp; Conditions
+          </Link>
+          ,{" "}
+          <Link href="/privacypolicy" target="_blank" rel="noopener noreferrer" className="font-semibold underline underline-offset-2">
+            Privacy Policy
+          </Link>{" "}
+          &amp; Auto-recursive payments
+        </p>
+      </div>
     </div>
   );
 
-
-
   return (
-    <div className={`${poppins.className} relative min-h-screen w-full overflow-x-hidden bg-white`}>
+    <div className={`${poppins.className} relative flex min-h-dvh w-full  bg-white`}>
       <Script id="meta-pixel" strategy="afterInteractive">
         {META_PIXEL_SCRIPT}
       </Script>
@@ -447,37 +431,33 @@ export default function JazzCashPage() {
       {/* ── Decorative side curve (placeholder brand accent) ── */}
       <div
         aria-hidden
-        className="pointer-events-none absolute inset-y-0 right-0 z-0 w-[18%] [clip-path:polygon(46%_0%,100%_0%,100%_100%,140%_100%)] sm:w-[13%] lg:w-[9%] lg:[clip-path:polygon(30%_0%,100%_0%,100%_100%,70%_100%)]"
+        className="pointer-events-none absolute inset-y-0 right-0 z-0 w-[18%] [clip-path:polygon(40%_0%,100%_0%,100%_100%,150%_100%)] sm:w-[13%] lg:w-[9%] lg:[clip-path:polygon(30%_0%,100%_0%,100%_100%,70%_100%)]"
         style={{ backgroundColor: BRAND.pink }}
       />
 
       {/* ── Desktop ── */}
-      <div className="relative z-10 hidden w-full lg:block">
-        <div className="mx-auto max-w-[1180px] px-6 pb-16 pt-12">
+      <div className="relative z-10 hidden h-full w-full lg:flex">
+        <div className="mx-auto flex h-full w-full max-w-[1180px] flex-col justify-center px-6 py-4">
           {renderLogo()}
 
-          <div className="mt-10 grid grid-cols-[1fr_420px] items-start gap-16">
+          <div className="mt-8 grid grid-cols-[minmax(0,1fr)_minmax(280px,420px)] items-center gap-8">
             <div className="flex flex-col gap-10">
               {renderHeadline()}
               {renderFeatureGrid()}
             </div>
 
-            <div className="flex flex-col gap-6">
-              {renderSubscribeCard()}
-
-            </div>
+            <div className="flex flex-col gap-6">{renderSubscribeCard()}</div>
           </div>
         </div>
       </div>
 
       {/* ── Mobile ── */}
-      <div className="relative z-10 w-full px-4  pt-4 lg:hidden">
-        <div className="flex flex-col items-center gap-3">
+      <div className="relative z-10 flex h-full w-full items-center justify-center px-3 py-4 lg:hidden">
+        <div className="flex w-full max-w-[420px] flex-col items-center gap-3">
           {renderLogo(true)}
           {renderHeadline(true)}
           <div className="w-full">{renderFeatureGrid(true)}</div>
           {renderSubscribeCard(true)}
-
         </div>
       </div>
 
