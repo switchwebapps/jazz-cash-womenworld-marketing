@@ -62,8 +62,8 @@ function JazzCashSuccessContent() {
 
   const handleContinueClick = () => {
     const ua = window.navigator.userAgent;
-    const playStore = "https://play.google.com/store/apps/details?id=com.busuu.android.enc";
-    const appStore = "https://apps.apple.com/pk/app/busuu-language-learning/id379968583";
+    const playStore = "https://play.google.com/store/apps/details?id=com.women.world.blogs";
+    const appStore = "https://apps.apple.com/pk/app/women-world-health-fitness/id6670153818";
     window.open(/iphone|ipad|ipod/i.test(ua) ? appStore : playStore, "_blank");
   };
 
