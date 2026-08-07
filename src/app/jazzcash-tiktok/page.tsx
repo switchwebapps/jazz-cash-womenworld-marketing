@@ -238,7 +238,7 @@ export default function JazzCashPage() {
       }
 
       if (data?.status === "1" || data?.status === 1) {
-        if (data?.package_id == 1) {
+        if (data?.package_id !== 1) {
           error = "You are already subscribed to service";
           event = "validation_error";
           setApiError(error);
