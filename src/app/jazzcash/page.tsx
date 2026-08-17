@@ -296,14 +296,14 @@ export default function JazzCashPage() {
   const renderHeadline = (mobile = false) => (
     <div className={` ${mobile ? "flex w-full flex-col items-center gap-1" : "flex flex-col gap-2"}`}>
       <span
-        className={`relative z-10 block w-fit max-w-full ${bebasNeue.className} rounded-md lg:rounded-2xl text-center font-bold uppercase leading-tight text-white ${mobile ? "-rotate-3 px-4 py-2 text-[24px]" : "-rotate-2 px-8 py-1 text-[48px] xl:text-[52px]"
+        className={`relative z-10 block w-fit max-w-full ${bebasNeue.className} rounded-md lg:rounded-2xl text-center font-bold uppercase leading-tight text-white ${mobile ? "-rotate-3 px-4 py-2 text-[20px]" : "-rotate-2 px-8 py-1 text-[48px] xl:text-[52px]"
           }`}
         style={{ backgroundColor: BRAND.pink }}
       >
         One App for Period Tracking
       </span>
       <span
-        className={`relative z-0 block w-fit max-w-full ${bebasNeue.className} rounded-md lg:rounded-2xl text-center font-bold uppercase leading-tight text-white ${mobile ? "-mt-1 -rotate-1 px-4 py-2 text-[24px]" : "-mt-2.5 rotate-0 px-8 py-1 text-[48px] xl:text-[52px]"
+        className={`relative z-0 block w-fit max-w-full ${bebasNeue.className} rounded-md lg:rounded-2xl text-center font-bold uppercase leading-tight text-white ${mobile ? "-mt-1 -rotate-1 px-4 py-2 text-[20px]" : "-mt-2.5 rotate-0 px-8 py-1 text-[48px] xl:text-[52px]"
           }`}
         style={{ backgroundColor: BRAND.purple }}
       >
