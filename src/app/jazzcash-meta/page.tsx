@@ -8,6 +8,8 @@ import { Bebas_Neue, Poppins } from "next/font/google";
 import Image from "next/image";
 import { checkSubscriberWw } from "@/apis/request";
 import { devopsLog } from "@/utils/devopsLog";
+import { analytics } from "@/lib/firebase";
+import { logEvent } from "firebase/analytics";
 
 const SERVICE = "WomenWorld";
 const LANDING = "jazzcash-meta";
@@ -262,14 +264,23 @@ export default function JazzCashPage() {
       setApiError(error);
       error = `${error}${err instanceof Error ? ` (${err.message})` : ""}`;
     } finally {
-      devopsLog({
-        msisdn,
-        service: `${SERVICE}/${LANDING}`,
-        subscribe_clicked: "yes",
-        form_submission: formSubmission,
-        event,
-        error,
-      });
+      async function test() {
+        await fetch("/api/log", {
+          method: "POST",
+          body: JSON.stringify({
+            message: devopsLog({
+              msisdn,
+              service: `${SERVICE}/${LANDING}`,
+              subscribe_clicked: "yes",
+              form_submission: formSubmission,
+              event,
+              error,
+            })
+          }),
+        });
+      }
+
+      test();
       setLoading(false);
     }
   };
@@ -427,7 +438,11 @@ export default function JazzCashPage() {
     </div>
   );
 
+  useEffect(() => {
+    if (!analytics) return;
 
+    logEvent(analytics, "jazzcash_meta_page_view");
+  }, []);
 
   return (
     <div className={`${poppins.className} relative min-h-screen w-full overflow-x-hidden bg-white`}>

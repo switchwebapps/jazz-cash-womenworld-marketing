@@ -8,7 +8,7 @@ export type DevopsLogFields = {
 };
 
 /** One-line DevOps frontend log. MSISDN is always included. */
-export function devopsLog(fields: DevopsLogFields): void {
+export function devopsLog(fields: DevopsLogFields) {
   const line = [
     `timestamp=${new Date().toISOString()}`,
     `msisdn=${fields.msisdn || "unknown"}`,
@@ -19,5 +19,5 @@ export function devopsLog(fields: DevopsLogFields): void {
     `error=${fields.error || "none"}`,
   ].join(" | ");
 
-  console.log(`[DEVOPS] ${line}`);
+  return `[DEVOPS] ${line}`;
 }

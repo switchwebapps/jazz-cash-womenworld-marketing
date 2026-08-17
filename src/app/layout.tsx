@@ -10,7 +10,7 @@ const poppins = Poppins({
 
 export const metadata: Metadata = {
   title: "JazzCash Marketing",
-  description: "A jazz cash marketing website for Busuu subscription",
+  description: "A jazz cash marketing website for women world subscription",
 };
 
 export default function RootLayout({

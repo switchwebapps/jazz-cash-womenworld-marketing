@@ -8,6 +8,8 @@ import { Bebas_Neue, Poppins } from "next/font/google";
 import Image from "next/image";
 import { checkSubscriberWw } from "@/apis/request";
 import { devopsLog } from "@/utils/devopsLog";
+import { analytics } from "@/lib/firebase";
+import { logEvent } from "firebase/analytics";
 
 const SERVICE = "WomenWorld";
 const LANDING = "jazzcash-tiktok";
@@ -262,14 +264,23 @@ export default function JazzCashPage() {
       setApiError(error);
       error = `${error}${err instanceof Error ? ` (${err.message})` : ""}`;
     } finally {
-      devopsLog({
-        msisdn,
-        service: `${SERVICE}/${LANDING}`,
-        subscribe_clicked: "yes",
-        form_submission: formSubmission,
-        event,
-        error,
-      });
+      async function test() {
+        await fetch("/api/log", {
+          method: "POST",
+          body: JSON.stringify({
+            message: devopsLog({
+              msisdn,
+              service: `${SERVICE}/${LANDING}`,
+              subscribe_clicked: "yes",
+              form_submission: formSubmission,
+              event,
+              error,
+            })
+          }),
+        });
+      }
+
+      test();
       setLoading(false);
     }
   };
@@ -312,14 +323,14 @@ export default function JazzCashPage() {
   const renderHeadline = (mobile = false) => (
     <div className={` ${bebasneue.className}  ${mobile ? "flex w-full flex-col items-center gap-1" : "flex flex-col gap-2"}`}>
       <span
-        className={`relative z-10 block w-fit max-w-full break-words rounded-md lg:rounded-2xl text-center font-normal uppercase leading-tight text-white ${mobile ? "-rotate-3 px-4 py-2 text-[24px]" : "-rotate-2 px-8 py-4 text-[48px] xl:text-[52px]"
+        className={`relative z-10 block w-fit max-w-full break-words rounded-md lg:rounded-2xl text-center font-normal uppercase leading-tight text-white ${mobile ? "-rotate-3 px-4 py-2 text-[24px]" : "-rotate-2 px-8 py-2 text-[48px] xl:text-[52px]"
           }`}
         style={{ backgroundColor: BRAND.pink }}
       >
         One App for Period Tracking
       </span>
       <span
-        className={`relative z-0 block w-fit max-w-full break-words rounded-md lg:rounded-2xl text-center font-normal uppercase leading-tight text-white ${mobile ? "-mt-1 -rotate-1 px-4 py-2 text-[24px]" : "-mt-2.5 rotate-0 px-8 py-4 text-[48px] xl:text-[52px]"
+        className={`relative z-0 block w-fit max-w-full break-words rounded-md lg:rounded-2xl text-center font-normal uppercase leading-tight text-white ${mobile ? "-mt-1 -rotate-1 px-4 py-2 text-[24px]" : "-mt-2.5 rotate-0 px-8 py-2 text-[48px] xl:text-[52px]"
           }`}
         style={{ backgroundColor: BRAND.purple }}
       >
@@ -427,7 +438,11 @@ export default function JazzCashPage() {
     </div>
   );
 
+  useEffect(() => {
+    if (!analytics) return;
 
+    logEvent(analytics, "jazzcash_tiktok_page_view");
+  }, []);
 
   return (
     <div className={`${poppins.className} relative min-h-screen w-full overflow-x-hidden bg-white`}>
