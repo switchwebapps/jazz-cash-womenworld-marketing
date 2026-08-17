@@ -419,7 +419,7 @@ export default function JazzCashPage() {
   useEffect(() => {
     if (!analytics) return;
 
-    logEvent(analytics, "jazzcash_gdn_page_view");
+    logEvent(analytics, "womenworld_gdn");
   }, []);
 
   return (

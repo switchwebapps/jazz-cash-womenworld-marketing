@@ -441,7 +441,7 @@ export default function JazzCashPage() {
   useEffect(() => {
     if (!analytics) return;
 
-    logEvent(analytics, "jazzcash_tiktok_page_view");
+    logEvent(analytics, "womenworld_tiktok");
   }, []);
 
   return (

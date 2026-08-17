@@ -427,7 +427,7 @@ export default function JazzCashPage() {
   useEffect(() => {
     if (!analytics) return;
 
-    logEvent(analytics, "jazzcash_meta_page_view");
+    logEvent(analytics, "womenworld_meta");
   }, []);
 
   return (
