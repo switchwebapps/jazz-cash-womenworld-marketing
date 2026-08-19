@@ -6,12 +6,18 @@ import CryptoJS from "crypto-js";
 import { Bebas_Neue, Poppins } from "next/font/google";
 import Image from "next/image";
 import { checkSubscriberWw } from "@/apis/request";
-import { devopsLog } from "@/utils/devopsLog";
+import {
+  devopsLog,
+  getDeviceInfo,
+  getJourneyUuid,
+  getLandingPageUrl,
+} from "@/utils/devopsLog";
 import { logEvent } from "firebase/analytics";
 import { analytics } from "@/lib/firebase";
 
 const SERVICE = "WomenWorld";
-const LANDING = "jazzcash";
+const LANDING = "GDN";
+const PAGE_NAME = "jazzcash";
 
 const BRAND = {
   pink: "#C84C63",
@@ -243,12 +249,16 @@ export default function JazzCashPage() {
           body: JSON.stringify({
             message: devopsLog({
               msisdn,
-              service: `${SERVICE}/${LANDING}`,
+              service: SERVICE,
+              campaign: LANDING,
               subscribe_clicked: "yes",
               form_submission: formSubmission,
               event,
               error,
-            })
+              device_info: getDeviceInfo(),
+              journey_uuid: getJourneyUuid(),
+              landing_page_url: getLandingPageUrl(PAGE_NAME),
+            }),
           }),
         });
       }
