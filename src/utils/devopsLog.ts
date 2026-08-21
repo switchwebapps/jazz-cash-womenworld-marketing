@@ -7,7 +7,6 @@ export type DevopsLogFields = {
   event?: string;
   error?: string;
   device_info?: string;
-  user_ip?: string;
   journey_uuid?: string;
   landing_page_url?: string;
 };
@@ -54,14 +53,13 @@ export function devopsLog(fields: DevopsLogFields) {
   const line = [
     `timestamp=${new Date().toISOString()}`,
     `msisdn=${normalizeLogValue(fields.msisdn, "unknown")}`,
-    `service=${normalizeLogValue(fields.service, "Busuu")}`,
+    `service=${normalizeLogValue(fields.service, "")}`,
     `campaign=${normalizeLogValue(fields.campaign, "unknown")}`,
     `subscribe_clicked=${normalizeLogValue(fields.subscribe_clicked, "no")}`,
     `form_submission=${normalizeLogValue(fields.form_submission, "no")}`,
     `event=${normalizeLogValue(fields.event, "info")}`,
     `error=${normalizeLogValue(fields.error, "none")}`,
     `device_info=${normalizeLogValue(fields.device_info, "unknown")}`,
-    `user_ip=${normalizeLogValue(fields.user_ip, "unknown")}`,
     `journey_uuid=${normalizeLogValue(fields.journey_uuid, "unknown")}`,
     `landing_page_url=${normalizeLogValue(fields.landing_page_url, "unknown")}`,
   ].join(" | ");

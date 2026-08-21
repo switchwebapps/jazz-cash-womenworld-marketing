@@ -65,6 +65,7 @@ export default function JazzCashPage() {
   const [apiError, setApiError] = useState("");
   const redirectFormRef = useRef<HTMLFormElement>(null);
 
+
   const JAZZCASH_ACTION_URL =
     "https://pgw.jazzcash.com.pk/WalletLinkingPortal/wallet/LinkWallet";
 
@@ -77,6 +78,7 @@ export default function JazzCashPage() {
   const generateHMAC = (data: string, key: string) => {
     return CryptoJS.HmacSHA256(data, key).toString(CryptoJS.enc.Hex);
   };
+
 
   // useEffect(() => {
   //   fetch("http://fitflexapp.com/api/get_head_enrichment.php")
